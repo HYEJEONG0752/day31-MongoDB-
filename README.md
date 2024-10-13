@@ -127,14 +127,14 @@
 
     runTransaction().catch(console.error);
     ```
-    1. MongoClient 및 세션 생성: `MongoClient`를 사용하여 MongoDB에 연결하고, 트랜잭션을 처리할 세션을 생성합니다.
-    2. 트랜잭션 시작: `session.startTransaction()` 메서드를 통해 트랜잭션을 시작합니다.
-    3. 업데이트 작업 수행:
+    (1) MongoClient 및 세션 생성: `MongoClient`를 사용하여 MongoDB에 연결하고, 트랜잭션을 처리할 세션을 생성합니다.
+    (2) 트랜잭션 시작: `session.startTransaction()` 메서드를 통해 트랜잭션을 시작합니다.
+    (3) 업데이트 작업 수행:
         - 첫 번째 `updateOne()`에서는 송금자의 계좌에서 100달러를 차감하고, 두 번째 `updateOne()`에서는 수신자의 계좌에 100달러를 추가합니다.
         - 두 작업 모두 동일한 트랜잭션 세션 내에서 처리되므로, 둘 중 하나라도 실패하면 전체 트랜잭션이 롤백됩니다.
-    4. 트랜잭션 커밋: 모든 작업이 성공적으로 완료되면 `session.commitTransaction()`을 호출하여 트랜잭션을 커밋합니다.
-    5. 트랜잭션 롤백: 만약 작업 중 오류가 발생하면, `session.abortTransaction()`을 호출하여 트랜잭션을 취소하고 롤백합니다.
-    6. 세션 종료: 작업이 완료된 후에는 `session.endSession()`을 호출하여 세션을 종료합니다.
+    (4) 트랜잭션 커밋: 모든 작업이 성공적으로 완료되면 `session.commitTransaction()`을 호출하여 트랜잭션을 커밋합니다.
+    (5) 트랜잭션 롤백: 만약 작업 중 오류가 발생하면, `session.abortTransaction()`을 호출하여 트랜잭션을 취소하고 롤백합니다.
+    (6) 세션 종료: 작업이 완료된 후에는 `session.endSession()`을 호출하여 세션을 종료합니다.
 
 ---
 
